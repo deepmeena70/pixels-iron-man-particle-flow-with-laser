@@ -1,7 +1,5 @@
 const action = document.getElementById("action");
-const reset = document.getElementById("reset");
 var status = 0;
-var resetState = 0;
 var raf = 0;
 const imgWidth = 231;
 const imgHeight = 457;
@@ -25,8 +23,6 @@ img.addEventListener('load', () => {
 
 function change() {
     ctx.drawImage(img, 0, 0);
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const data = imageData.data;
 
     let numberOfParticles = 2000;
     let particlesArray = [];
@@ -37,14 +33,9 @@ function change() {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.speed = 0;
-            this.raySpeed = 5;
             this.vy = Math.random() * 4;
             this.vx = Math.random() * 1.4;
             this.size = Math.random() * 2 + 0.1;
-            this.position1 = Math.floor(this.y);
-            this.position2 = Math.floor(this.x);
-            this.random = Math.random();
         }
 
         update() {
@@ -71,12 +62,8 @@ function change() {
         constructor() {
             this.x = 590 + Math.random() * 6;
             this.y = Math.random() * canvas.height;
-            this.speed = 0;
             this.velocity = Math.random() * 3;
             this.size = Math.random() * 2 + 0.1;
-            this.position1 = Math.floor(this.y);
-            this.position2 = Math.floor(this.x);
-            this.random = Math.random();
         }
         update() {
             if (this.y > canvas.height) {
